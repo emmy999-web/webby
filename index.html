@@ -1,0 +1,58 @@
+<div class="img">
+<meta name="viewport"content="width=device-width, initial-scale=1">
+<script src="vue.js"></script>
+<script src="vuetify.js"></script>
+<link rel="stylesheet"href="vuetify.min.css">
+
+<v-app>
+  <v-container filled class="text-center bg">
+  <v-text-field solo label="type your name here" v-model="name"></v-text-field>
+
+  <v-card v-if="done">
+    <v-card-title class="blue--text text-uppercase">message</v-card-title>
+
+    <v-card-text class="pink--text text--lighten-7">
+    Dear {{name}}, Segun loves u die!
+      </v-card-text>
+      </v-card>
+    </v-container>
+  </v-app>
+
+  <script>
+    var vuetify = new Vuetify();
+    var vApp = new Vue({
+      el: "v-app",
+      name: "vName",
+      data(){return{
+        name: null,
+      }},
+      computed: {
+        done(){
+          var vm = this;
+          if (vm.name == null || vm.name == ""){
+            return false;
+          }
+          else{
+            return true;
+          }
+        }
+      },
+      vuetify: vuetify,
+    });
+  </script>
+  </div>
+<style>
+  html{
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 600;
+    height: 100vh;
+  }
+  .bg{
+    background-image: radial-gradient(black, pink, white, pink, black);
+    height: 100%;
+    font-family: cursive;
+    font-weight: 600;
+  }
+  </style>
+
